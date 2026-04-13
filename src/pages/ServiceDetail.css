@@ -1,0 +1,186 @@
+.detail-banner {
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.detail-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,17,23,0.85), rgba(13,17,23,0.6));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 80px;
+  color: white;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: fit-content;
+  transition: background 0.3s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.25); }
+
+.detail-banner-overlay h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; }
+.detail-banner-overlay p { font-size: 17px; color: #ccc; margin-bottom: 20px; max-width: 600px; }
+
+.detail-pricing { display: flex; gap: 12px; flex-wrap: wrap; }
+.price-badge {
+  background: rgba(255,107,53,0.2);
+  border: 1px solid #ff6b35;
+  color: #ff6b35;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.price-badge.pro {
+  background: rgba(255,107,53,0.9);
+  color: white;
+  border-color: transparent;
+}
+
+.detail-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.detail-content h2 { font-size: 36px; font-weight: 800; text-align: center; margin-bottom: 8px; }
+.detail-sub { text-align: center; color: #8b949e; font-size: 16px; margin-bottom: 50px; }
+
+.subcategory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.sub-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid transparent;
+}
+.sub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  border-color: var(--color);
+}
+
+.sub-img-wrap {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  overflow: hidden;
+}
+
+.sub-img-wrap.loaded {
+  background: none;
+  animation: none;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.sub-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.sub-img-wrap.loaded img {
+  opacity: 1;
+}
+
+.sub-info { padding: 20px; }
+.sub-info h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.sub-info > p { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+
+.sub-info ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.sub-info ul li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #444; }
+
+.sub-order-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.sub-order-btns .btn-orange { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; padding: 10px; }
+.btn-pro {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 13px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.btn-pro:hover { opacity: 0.85; }
+
+/* Upload Button Styles */
+.upload-btn {
+  flex: 1;
+  min-width: 120px;
+  background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px !important;
+  border-radius: 30px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  transition: all 0.3s ease !important;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  .detail-banner { height: auto; }
+  .detail-banner-overlay { padding: 40px 20px; }
+  .detail-banner-overlay h1 { font-size: 32px; }
+}
+
+/* Upload Section Styles */
+.upload-section {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.upload-section h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.upload-description {
+  color: #8b949e;
+  font-size: 16px;
+  margin-bottom: 30px;
+}

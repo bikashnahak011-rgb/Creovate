@@ -1,0 +1,82 @@
+.baf-gallery {
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.baf-gallery h3 {
+  margin: 0 0 14px;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.baf-gallery p {
+  margin: 0 0 18px;
+  color: #4b5563;
+}
+
+.baf-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.baf-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.baf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.baf-image-wrap {
+  width: 100%;
+  min-height: 170px;
+  max-height: 210px;
+  overflow: hidden;
+  background: #f9fafb;
+}
+
+.baf-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.baf-card:hover .baf-image-wrap img {
+  transform: scale(1.04);
+}
+
+.baf-info {
+  padding: 12px;
+}
+
+.baf-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.baf-info p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.baf-info small {
+  display: block;
+  margin-top: 8px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
