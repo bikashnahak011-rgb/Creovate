@@ -55,7 +55,7 @@
 .detail-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 .detail-content h2 { font-size: 36px; font-weight: 800; text-align: center; margin-bottom: 8px; }
 .detail-sub { text-align: center; color: #8b949e; font-size: 16px; margin-bottom: 50px; }
@@ -162,19 +162,80 @@
 }
 
 @media (max-width: 768px) {
-  .detail-banner { height: auto; }
-  .detail-banner-overlay { padding: 40px 20px; }
-  .detail-banner-overlay h1 { font-size: 32px; }
-  .detail-content { padding: 40px 16px; }
-  .detail-content h2 { font-size: 28px; }
-  .subcategory-grid { gap: 18px; }
-  .sub-info { padding: 16px; }
-  .sub-info p { font-size: 15px; }
-  .sub-order-btns { flex-direction: column; }
+  .detail-banner {
+    height: auto;
+    min-height: 280px;
+  }
+  .detail-banner-overlay {
+    padding: 30px 16px;
+    justify-content: flex-end;
+    min-height: 280px;
+  }
+  .detail-banner-overlay h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .detail-banner-overlay p {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .detail-pricing {
+    gap: 8px;
+  }
+  .price-badge {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .detail-content {
+    padding: 50px 16px;
+  }
+  .detail-content h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .detail-sub {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .subcategory-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .sub-card {
+    border-radius: 16px;
+  }
+  .sub-img-wrap {
+    height: 180px;
+  }
+  .sub-info {
+    padding: 14px;
+  }
+  .sub-info h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .sub-info p {
+    font-size: 13px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .sub-info ul {
+    margin-bottom: 14px;
+  }
+  .sub-info ul li {
+    font-size: 12px;
+    gap: 6px;
+  }
+  .sub-order-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
   .sub-order-btns .btn-orange,
   .sub-order-btns .btn-pro,
   .upload-btn {
     width: 100%;
+    font-size: 12px;
+    padding: 10px !important;
   }
 }
 
