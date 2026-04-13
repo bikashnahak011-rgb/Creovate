@@ -174,8 +174,29 @@
 }
 
 @media (max-width: 768px) {
-  .service-row { grid-template-columns: 1fr; gap: 30px; }
-  .service-row:nth-child(even) { direction: ltr; }
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    direction: ltr;
+  }
+  .service-row:nth-child(even) {
+    direction: ltr;
+  }
+  .service-row-img,
+  .service-row-info {
+    width: 100%;
+  }
+  .service-row-img-wrapper {
+    height: 260px;
+  }
+  .service-row-info h2 {
+    font-size: 26px;
+  }
+  .service-row-info ul {
+    flex-direction: column;
+  }
+  .pricing-cards {
+    flex-direction: column;
+  }
   .services-hero h1 { font-size: 32px; }
-  .pricing-cards { flex-direction: column; }
 }

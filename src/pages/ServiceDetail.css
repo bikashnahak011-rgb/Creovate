@@ -165,6 +165,17 @@
   .detail-banner { height: auto; }
   .detail-banner-overlay { padding: 40px 20px; }
   .detail-banner-overlay h1 { font-size: 32px; }
+  .detail-content { padding: 40px 16px; }
+  .detail-content h2 { font-size: 28px; }
+  .subcategory-grid { gap: 18px; }
+  .sub-info { padding: 16px; }
+  .sub-info p { font-size: 15px; }
+  .sub-order-btns { flex-direction: column; }
+  .sub-order-btns .btn-orange,
+  .sub-order-btns .btn-pro,
+  .upload-btn {
+    width: 100%;
+  }
 }
 
 /* Upload Section Styles */
