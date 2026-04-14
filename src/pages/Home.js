@@ -15,6 +15,12 @@ const services = [
   { icon: <FaChartBar />, title: 'Presentations', slug: 'presentations', desc: 'Stunning slides for any task — business, academic or personal.', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&q=80', color: '#10b981' },
 ];
 
+const defaultFeedbacks = [
+  { name: 'Amit Sharma', service: 'Video Editing', rating: 5, message: 'Excellent work! The video editing was perfect. Very fast delivery and great communication. Highly recommended to everyone!' },
+  { name: 'Priya Gupta', service: 'Photo Editing', rating: 4.8, message: 'Amazing photo editing quality! The colors are vibrant and professional. CREOVATE is the best choice for any creative work.' },
+  { name: 'Rahul Verma', service: 'Website Building', rating: 4, message: 'Built a fantastic website for my business. Responsive, beautiful design, and excellent customer support. Worth every penny!' },
+];
+
 export default function Home() {
   const { open } = useWhatsApp();
   const [feedbacks, setFeedbacks] = useState([]);
@@ -164,18 +170,20 @@ export default function Home() {
         <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Testimonials</p>
         <h2 className="section-title">Customer Reviews</h2>
         <div className="feedback-grid">
-          {feedbacks.slice(0, 6).map((f, i) => (
-            <div className="feedback-card" key={i}>
-              <div className="stars">{[...Array(f.rating)].map((_, j) => <FaStar key={j} color="#ff6b35" />)}</div>
-              <div className="feedback-message">
-                {f.message.split(/\r?\n/).map((line, idx) => (
-                  <p key={idx}>{line || <>&nbsp;</>}</p>
-                ))}
+          {[...defaultFeedbacks, ...feedbacks].slice(0, 6).map((f, i) => {
+            const roundedRating = Math.max(0, Math.min(5, Math.round(Number(f.rating) || 0)));
+            return (
+              <div className="feedback-card" key={i}>
+                <div className="stars">{[...Array(roundedRating)].map((_, j) => <FaStar key={j} color="#ff6b35" />)}</div>
+                <div className="feedback-message">
+                  {f.message.split(/\r?\n/).map((line, idx) => (
+                    <p key={idx}>{line || <>&nbsp;</>}</p>
+                  ))}
+                </div>
+                <h5>— {f.name} <span>({f.service})</span></h5>
               </div>
-              <h5>— {f.name} <span>({f.service})</span></h5>
-            </div>
-          ))}
-          {feedbacks.length === 0 && <p style={{color:'#8b949e', textAlign:'center', gridColumn:'1/-1'}}>Be the first to leave a review! 🌟</p>}
+            );
+          })}
         </div>
 
         {/* Leave Feedback Form */}
