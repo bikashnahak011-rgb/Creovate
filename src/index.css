@@ -9,14 +9,17 @@
 :root {
   --orange: #ff6b35;
   --orange-dark: #e55a25;
+  --orange-light: #ff8a5b;
   --dark: #0d1117;
   --dark2: #161b22;
   --white: #ffffff;
   --gray: #8b949e;
   --light-bg: #f6f8fa;
   --border: #e0e0e0;
-  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.1);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
 }
 
 html { scroll-behavior: smooth; }
@@ -40,7 +43,7 @@ button { font-family: inherit; }
 
 /* Buttons */
 .btn-orange {
-  background: var(--orange);
+  background: linear-gradient(135deg, var(--orange) 0%, #ff8a5b 100%);
   color: white;
   border: none;
   padding: 12px 28px;
@@ -52,11 +55,15 @@ button { font-family: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 4px 16px rgba(255,107,53,0.28);
 }
 .btn-orange:hover {
-  background: var(--orange-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255,107,53,0.35);
+  background: linear-gradient(135deg, var(--orange-dark) 0%, #ff7a45 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(255,107,53,0.4);
+}
+.btn-orange:active {
+  transform: translateY(-1px);
 }
 
 .btn-outline {
@@ -74,19 +81,23 @@ button { font-family: inherit; }
   gap: 8px;
 }
 .btn-outline:hover {
-  background: white;
-  color: var(--dark);
+  background: rgba(255,255,255,0.1);
+  color: white;
   border-color: white;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.15);
+  transform: translateY(-3px);
 }
 
 section { padding: 80px 20px; }
 
 .section-title {
   text-align: center;
-  font-size: 36px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  letter-spacing: -0.5px;
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  letter-spacing: -0.8px;
+  color: #0d1117;
+  line-height: 1.2;
 }
 
 .section-sub {
@@ -94,6 +105,8 @@ section { padding: 80px 20px; }
   color: var(--gray);
   margin-bottom: 50px;
   font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 /* WhatsApp Float */

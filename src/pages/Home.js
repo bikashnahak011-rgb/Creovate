@@ -6,8 +6,6 @@ import useWhatsApp from '../useWhatsApp';
 import './Home.css';
 
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-const bikash = '/bikash.jpg';
-
 const services = [
   { icon: <FaVideo />, title: 'Video Editing', slug: 'video-editing', desc: 'Gaming, Reels, YouTube & more. Professional cuts, effects and transitions.', img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=500&q=80', color: '#ff6b35' },
   { icon: <FaImage />, title: 'Photo Editing', slug: 'photo-editing', desc: 'Banners, Logos, Thumbnails & professional photo retouching.', img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&q=80', color: '#7c3aed' },
@@ -106,13 +104,26 @@ export default function Home() {
             <Link to="/services" className="btn-outline">View Services</Link>
           </div>
         </div>
-        <div className={`hero-img ${loadedImages['hero'] ? 'loaded' : 'loading'}`}>
-          <img 
-            src={bikash} 
-            alt="Bikash Nahak - CREOVATE"
-            loading="lazy"
-            onLoad={() => handleImageLoad('hero')}
-          />
+      </section>
+
+      {/* Trust Indicators */}
+      <section className="trust-section">
+        <div className="trust-indicators">
+          <div className="trust-card">
+            <div className="trust-icon">✅</div>
+            <div className="trust-value">100+</div>
+            <div className="trust-label">Projects Completed</div>
+          </div>
+          <div className="trust-card">
+            <div className="trust-icon">⚡</div>
+            <div className="trust-value">Fast</div>
+            <div className="trust-label">Quick Delivery</div>
+          </div>
+          <div className="trust-card">
+            <div className="trust-icon">⭐</div>
+            <div className="trust-value">100%</div>
+            <div className="trust-label">Client Satisfaction</div>
+          </div>
         </div>
       </section>
 
