@@ -75,10 +75,9 @@ export default function Home() {
               {[
                 { num: '1', text: 'Select your service' },
                 { num: '2', text: 'Chat on WhatsApp and share your requirement' },
-                { num: '3', text: 'Receive preview (watermarked)' },
-                { num: '4', text: 'Make payment' },
-                { num: '5', text: 'Get final high-quality delivery' },
-                { num: '6', text: 'Then kindly share your feedback' }
+                { num: '3', text: 'Receive preview (watermarked), After Payment' },
+                { num: '4', text: 'Get final high-quality delivery' },
+                { num: '5', text: 'Then kindly share your feedback' }
               ].map((step, idx) => (
                 <div className="modal-step" key={idx}>
                   <div className="step-badge">{step.num}</div>
@@ -92,17 +91,28 @@ export default function Home() {
           </div>
         </div>
       )}
+      {/* Urgency Strip */}
+      <div className="urgency-strip">
+        🔥 Limited Slots Available This Week — <strong>Order Now & Get Priority Delivery!</strong> &nbsp;|&nbsp; ✅ After Preview, Then Pay Through UPI/QR
+      </div>
+
       {/* Hero */}
       <section className="hero">
         <div className="hero-text">
-          <span className="badge">🔥 Developer By BIKASH NAHAK</span>
+          <span className="badge">⭐ Trusted by 100+ Happy Clients</span>
           <h1>Your Creative Vision,<br /><span>Delivered Professionally</span></h1>
-          <p>Video editing, photo editing, websites & presentations — all at affordable prices. Order via WhatsApp, pay after preview!</p>
-          <p className="hero-trust"> Your Satisfaction is Our Priority</p>
+          <p>Video editing, photo editing, websites & presentations — all at affordable prices. Order via WhatsApp, <strong style={{color:'#ff9500'}}>pay only after you approve the preview!</strong></p>
+          <div className="hero-guarantees">
+            <span>✅ No Upfront Payment</span>
+            <span>⚡ Fast Delivery</span>
+            <span>🔄 Free Revisions</span>
+            <span>💬 24/7 WhatsApp Support</span>
+          </div>
           <div className="hero-btns">
-            <button className="btn-orange" onClick={() => open('Hi Bikash! I want to order a service from CREOVATE')}>Order Now 🚀</button>
+            <button className="btn-order-float" onClick={() => open('Hi Bikash! I want to order a service from CREOVATE')}>Order Now 🚀</button>
             <Link to="/services" className="btn-outline">View Services</Link>
           </div>
+          <p className="hero-trust">🛡️ 100% Satisfaction Guaranteed — No Risk, No Stress</p>
         </div>
       </section>
 
@@ -115,15 +125,42 @@ export default function Home() {
             <div className="trust-label">Projects Completed</div>
           </div>
           <div className="trust-card">
-            <div className="trust-icon">⚡</div>
-            <div className="trust-value">Fast</div>
-            <div className="trust-label">Quick Delivery</div>
+            <div className="trust-icon">⭐</div>
+            <div className="trust-value">4.7/5</div>
+            <div className="trust-label">Average Rating</div>
           </div>
           <div className="trust-card">
-            <div className="trust-icon">⭐</div>
-            <div className="trust-value">100%</div>
-            <div className="trust-label">Client Satisfaction</div>
+            <div className="trust-icon">⚡</div>
+            <div className="trust-value">24hr</div>
+            <div className="trust-label">Fast Delivery</div>
           </div>
+          <div className="trust-card">
+            <div className="trust-icon">🛡️</div>
+            <div className="trust-value">100%</div>
+            <div className="trust-label">Satisfaction Rate</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="why-us-section">
+        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Why CREOVATE</p>
+        <h2 className="section-title" style={{color:'white'}}>Why Clients Trust Us</h2>
+        <div className="why-us-grid">
+          {[
+            { icon: '💰', title: 'Pay After Preview', desc: 'You only pay after you see and approve the watermarked preview. Zero risk for you.' },
+            { icon: '⚡', title: 'Super Fast Delivery', desc: 'Most projects delivered within 24 hours. Urgent orders handled with priority.' },
+            { icon: '🔄', title: 'Free Revisions', desc: 'Not 100% happy? We revise until you are. Your satisfaction is our goal.' },
+            { icon: '💬', title: 'Direct WhatsApp Support', desc: 'Chat directly with Bikash on WhatsApp. No bots, no delays, real human support.' },
+            { icon: '🎨', title: 'Professional Quality', desc: 'Every project is crafted with care, creativity and professional-grade tools.' },
+            { icon: '💸', title: 'Affordable Prices', desc: 'Starting from just ₹20. Premium quality at prices everyone can afford.' },
+          ].map((w, i) => (
+            <div className="why-card" key={i}>
+              <div className="why-icon">{w.icon}</div>
+              <h4>{w.title}</h4>
+              <p>{w.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -147,8 +184,8 @@ export default function Home() {
               <div className="service-info">
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <a href={`/services/${s.slug}`} className="btn-orange" style={{fontSize:'13px', padding:'8px 20px', display:'inline-flex', alignItems:'center', gap:6}}>
-                  Explore Now
+                <a href={`/services/${s.slug}`} className="btn-explore-home">
+                  Explore Now →
                 </a>
               </div>
             </div>

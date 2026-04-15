@@ -8,8 +8,8 @@ import './Services.css';
 const services = [
   { icon: <FaVideo />, title: 'Video Editing', slug: 'video-editing', color: '#ff6b35', img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80', desc: 'Professional video editing for Gaming, Reels, YouTube, and any occasion.', features: ['Color Grading', 'Transitions & Effects', 'Background Music', 'Subtitles/Captions', 'Watermark Preview'], premium: 49, pro: 69 },
   { icon: <FaImage />, title: 'Photo Editing', slug: 'photo-editing', color: '#7c3aed', img: 'https://i.pinimg.com/736x/a6/67/74/a66774c3ddec131e5842373877769d91.jpg', desc: 'Professional photo editing, banners, logos, thumbnails and more.', features: ['Background Removal', 'Color Correction', 'Logo Design', 'Thumbnail Design', 'Banner Creation'], premium: 20, pro: 35 },
-  { icon: <FaGlobe />, title: 'Website Building', slug: 'website-building', color: '#0ea5e9', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80', desc: 'Beautiful websites for Wedding, Birthday, Portfolio and personal use.', features: ['Responsive Design', 'Mobile Friendly', 'Contact Form', 'Gallery Section', 'Fast Delivery'], premium: 249, pro: 349 },
-  { icon: <FaChartBar />, title: 'Presentations', slug: 'presentations', color: '#10b981', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80', desc: 'Stunning PowerPoint/Google Slides for business, academic or personal tasks.', features: ['Custom Design', 'Animations', 'Charts & Graphs', 'Professional Layout', 'Any Topic'], premium: 99, pro: 129 },
+  { icon: <FaGlobe />, title: 'Website Building', slug: 'website-building', color: '#0ea5e9', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80', desc: 'Beautiful websites for Wedding, Birthday, Portfolio and personal use.', features: ['Responsive Design', 'Mobile Friendly', 'Contact Form', 'Gallery Section', 'Fast Delivery'], premium: 999, pro: 1299 },
+  { icon: <FaChartBar />, title: 'Presentations', slug: 'presentations', color: '#10b981', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80', desc: 'Stunning PowerPoint/Google Slides for business, academic or personal tasks.', features: ['Custom Design', 'Animations', 'Charts & Graphs', 'Professional Layout', 'Any Topic'], premium: 119, pro: 149 },
 ];
 
 export default function Services() {
@@ -33,7 +33,7 @@ export default function Services() {
   const submitOrder = async (e) => {
     e.preventDefault();
     const order = { ...form, service: orderForm.service, plan: orderForm.plan, price: orderForm.price };
-    await axios.post('http://localhost:5000/api/orders', order);
+    await axios.post('http://localhost:5000/api/orders', order).catch(() => {});
     open(`Hi Bikash! 👋\nName: ${form.name}\nService: ${orderForm.service}\nPlan: ${orderForm.plan} (Rs.${orderForm.price})\nDetails: ${form.description}`);
     setSent(true);
   };
@@ -83,7 +83,7 @@ export default function Services() {
                   </button>
                 </div>
               </div>
-              <button className="btn-explore" style={{borderColor: s.color, color: s.color}} onClick={() => navigate(`/services/${s.slug}`)}>
+              <button className="btn-explore" onClick={() => navigate(`/services/${s.slug}`)}>
                 Explore {s.title} <FaArrowRight />
               </button>
             </div>

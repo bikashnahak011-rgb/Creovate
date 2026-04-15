@@ -130,7 +130,7 @@ const serviceData = {
     color: '#0ea5e9',
     banner: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80',
     desc: 'Beautiful, responsive websites for every occasion and purpose.',
-    premium: 249, pro: 349,
+    premium: 999, pro: 1299,
     subcategories: [
       {
         title: 'Wedding Website',
@@ -189,7 +189,7 @@ const serviceData = {
     color: '#10b981',
     banner: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80',
     desc: 'Stunning presentations for any task — business, academic or personal.',
-    premium: 99, pro: 129,
+    premium: 119, pro: 149,
     subcategories: [
       {
         title: 'Academic Presentation',

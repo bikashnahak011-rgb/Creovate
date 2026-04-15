@@ -94,6 +94,36 @@
   background: linear-gradient(135deg, #fff8f5, #fff);
 }
 
+.price-card.pro .btn-orange {
+  background: linear-gradient(135deg, #ff6b35, #ff9500);
+  position: relative;
+  box-shadow: 0 6px 20px rgba(255,107,53,0.45);
+  animation: proOrderFloat 2s ease-in-out infinite;
+}
+.price-card.pro .btn-orange::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #ff6b35, #ff9500);
+  opacity: 0.4;
+  animation: proOrderRipple 2s ease-out infinite;
+  z-index: -1;
+}
+.price-card.pro .btn-orange:hover {
+  animation: none;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(255,107,53,0.6);
+}
+@keyframes proOrderFloat {
+  0%, 100% { transform: translateY(0); box-shadow: 0 6px 20px rgba(255,107,53,0.45); }
+  50% { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(255,107,53,0.65); }
+}
+@keyframes proOrderRipple {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
 .pro-badge {
   position: absolute;
   top: -12px; left: 50%; transform: translateX(-50%);
@@ -157,20 +187,43 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: transparent;
-  border: 2px solid;
-  padding: 10px 22px;
-  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6b35, #ff9500);
+  color: white !important;
+  border: none;
+  padding: 13px 26px;
+  border-radius: 50px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 16px;
-  transition: all 0.3s ease;
+  margin-top: 20px;
   font-family: inherit;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(255,107,53,0.45);
+  animation: explorePulse 2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-explore::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff6b35, #ff9500);
+  opacity: 0.4;
+  animation: exploreRipple 2s infinite;
+  z-index: -1;
 }
 .btn-explore:hover {
-  transform: translateX(5px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(255,107,53,0.55);
+  animation: none;
+}
+@keyframes explorePulse {
+  0%, 100% { transform: translateY(0); box-shadow: 0 6px 20px rgba(255,107,53,0.45); }
+  50% { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(255,107,53,0.6); }
+}
+@keyframes exploreRipple {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 @media (max-width: 768px) {
