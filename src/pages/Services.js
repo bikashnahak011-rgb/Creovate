@@ -77,7 +77,7 @@ export default function Services() {
       <div className="services-hero">
         <div className="services-hero-copy">
           <h1>Creative Services Built for Growth</h1>
-          <p>Fast, polished, and affordable creative work with direct WhatsApp support for every project.</p>
+          <p className="p1">Fast, polished, and affordable creative work with direct WhatsApp support for every project.</p>
           <div className="services-plan-cards">
             <div className="plan-box premium">
               <div className="plan-badge">Premium</div>
