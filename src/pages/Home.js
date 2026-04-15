@@ -102,12 +102,6 @@ export default function Home() {
           <span className="badge">⭐ Trusted by 100+ Happy Clients</span>
           <h1>Your Creative Vision,<br /><span>Delivered Professionally</span></h1>
           <p>Video editing, photo editing, websites & presentations — all at affordable prices. Order via WhatsApp, <strong style={{color:'#ff9500'}}>pay only after you approve the preview!</strong></p>
-          <div className="hero-guarantees">
-            <span>✅ No Upfront Payment</span>
-            <span>⚡ Fast Delivery</span>
-            <span>🔄 Free Revisions</span>
-            <span>💬 24/7 WhatsApp Support</span>
-          </div>
           <div className="hero-btns">
             <button className="btn-order-float" onClick={() => open('Hi Bikash! I want to order a service from CREOVATE')}>Order Now 🚀</button>
             <Link to="/services" className="btn-outline">View Services</Link>
@@ -142,28 +136,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="why-us-section">
-        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Why CREOVATE</p>
-        <h2 className="section-title" style={{color:'white'}}>Why Clients Trust Us</h2>
-        <div className="why-us-grid">
-          {[
-            { icon: '💰', title: 'Pay After Preview', desc: 'You only pay after you see and approve the watermarked preview. Zero risk for you.' },
-            { icon: '⚡', title: 'Super Fast Delivery', desc: 'Most projects delivered within 24 hours. Urgent orders handled with priority.' },
-            { icon: '🔄', title: 'Free Revisions', desc: 'Not 100% happy? We revise until you are. Your satisfaction is our goal.' },
-            { icon: '💬', title: 'Direct WhatsApp Support', desc: 'Chat directly with Bikash on WhatsApp. No bots, no delays, real human support.' },
-            { icon: '🎨', title: 'Professional Quality', desc: 'Every project is crafted with care, creativity and professional-grade tools.' },
-            { icon: '💸', title: 'Affordable Prices', desc: 'Starting from just ₹20. Premium quality at prices everyone can afford.' },
-          ].map((w, i) => (
-            <div className="why-card" key={i}>
-              <div className="why-icon">{w.icon}</div>
-              <h4>{w.title}</h4>
-              <p>{w.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Services Preview */}
       <section className="services-preview">
         <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>What We Offer</p>
@@ -188,6 +160,28 @@ export default function Home() {
                   Explore Now →
                 </a>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="why-us-section">
+        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Why CREOVATE</p>
+        <h2 className="section-title" style={{color:'white'}}>Why Clients Trust Us</h2>
+        <div className="why-us-grid">
+          {[
+            { icon: '💰', title: 'Pay After Preview', desc: 'You only pay after you see and approve the watermarked preview. Zero risk for you.' },
+            { icon: '⚡', title: 'Super Fast Delivery', desc: 'Most projects delivered within 24 hours. Urgent orders handled with priority.' },
+            { icon: '🔄', title: 'Free Revisions', desc: 'Not 100% happy? We revise until you are. Your satisfaction is our goal.' },
+            { icon: '💬', title: 'Direct WhatsApp Support', desc: 'Chat directly with Bikash on WhatsApp. No bots, no delays, real human support.' },
+            { icon: '🎨', title: 'Professional Quality', desc: 'Every project is crafted with care, creativity and professional-grade tools.' },
+            { icon: '💸', title: 'Affordable Prices', desc: 'Starting from just ₹20. Premium quality at prices everyone can afford.' },
+          ].map((w, i) => (
+            <div className="why-card" key={i}>
+              <div className="why-icon">{w.icon}</div>
+              <h4>{w.title}</h4>
+              <p>{w.desc}</p>
             </div>
           ))}
         </div>

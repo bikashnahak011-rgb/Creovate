@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaWhatsapp, FaVideo, FaImage, FaGlobe, FaChartBar, FaCheck, FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -19,6 +19,15 @@ export default function Services() {
   const [form, setForm] = useState({ name: '', description: '' });
   const [sent, setSent] = useState(false);
   const [loadedImages, setLoadedImages] = useState({});
+  const [showPlanModal, setShowPlanModal] = useState(false);
+
+  useEffect(() => {
+    const hasSeenPlanModal = localStorage.getItem('servicesPlanModalSeen');
+    if (!hasSeenPlanModal) {
+      setShowPlanModal(true);
+      localStorage.setItem('servicesPlanModalSeen', 'true');
+    }
+  }, []);
 
   const openOrder = (service, plan, price) => {
     setOrderForm({ service, plan, price });
@@ -40,10 +49,63 @@ export default function Services() {
 
   return (
     <div className="services-page">
+      {/* Plan Modal */}
+      {showPlanModal && (
+        <div className="modal-overlay" onClick={() => setShowPlanModal(false)}>
+          <div className="modal plan-modal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowPlanModal(false)}>✕</button>
+            <h3>Choose Your Plan</h3>
+            <div className="plan-options">
+              <div className="plan-card">
+                <div className="plan-icon">⭐</div>
+                <h4>Premium</h4>
+                <p>Basic Transition, Colour Grading, Take some time to Delivery</p>
+              </div>
+              <div className="plan-card pro">
+                <div className="plan-icon">🔥</div>
+                <h4>Premium Pro</h4>
+                <p>Advanced Effects, Custom Animations, Priority Support, 2K&4K, Quick Delivery</p>
+              </div>
+            </div>
+            <button className="btn-orange" onClick={() => setShowPlanModal(false)}>
+              Continue to Services
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="services-hero">
-        <h1>Our <span>Services</span></h1>
-        <p>Choose your service and plan — order via WhatsApp instantly!</p>
-        <p>⭐Premium(<b>Basic Transition, Colour Grading, Take some time to Delivery</b>) || 🔥Premium Pro(<b>Advanced Effects, Custom Animations, Priority Support, 2K&4K, Quick Delivery</b>)</p>
+        <div className="services-hero-copy">
+          <h1>Creative Services Built for Growth</h1>
+          <p>Fast, polished, and affordable creative work with direct WhatsApp support for every project.</p>
+          <div className="services-plan-cards">
+            <div className="plan-box premium">
+              <div className="plan-badge">Premium</div>
+              <h3>₹1149/mo</h3>
+              <p>You can Get This Services for +1 Month</p>
+              <ul>
+                <li>+5 Video Editing</li>
+                <li>+8 Photo Editing</li>
+                <li>+1 Build Website</li>
+                <li>+1 Presentation</li>
+              </ul>
+            </div>
+            <div className="plan-box pro">
+              <div className="plan-badge pro">Premium Pro</div>
+              <h3>₹1899/mo</h3>
+              <p>You Can Get This Services +2 Month</p> 
+              <ul>
+                <li>+8 Video Editing</li>
+                <li>+10 Photo Editing</li>
+                <li>+2 Build Website</li>
+                <li>+3 Presentation</li>
+              </ul>
+            </div>
+          </div>
+          <button className="btn-glow" onClick={() => setShowPlanModal(true)}>
+            View Plan Details
+          </button>
+        </div>
       </div>
 
       <div className="services-list">
