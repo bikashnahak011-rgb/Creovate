@@ -53,22 +53,16 @@ export default function Home() {
 
   return (
     <div className="home">
-      {/* Urgency Strip */}
-      <div className="urgency-strip">
-        🔥 Limited Slots Available This Week — <strong>Order Now & Get Priority Delivery!</strong> &nbsp;|&nbsp; ✅ After Preview, Then Pay Through UPI/QR
-      </div>
-
       {/* Hero */}
       <section className="hero">
         <div className="hero-text">
           <span className="badge">⭐ Trusted by 100+ Happy Clients</span>
           <h1>Your Creative Vision,<br /><span>Delivered Professionally</span></h1>
-          <p>Video editing, photo editing, websites & presentations — all at affordable prices. Order via WhatsApp, <strong style={{color:'#ff9500'}}>pay only after you approve the preview!</strong></p>
+          <p>Professional video editing, photo editing, website building & presentations. Get premium quality work at affordable prices.</p>
           <div className="hero-btns">
-            <button className="btn-order-float" onClick={() => open('Hi Bikash! I want to order a service from CREOVATE')}>Order Now 🚀</button>
-            <Link to="/services" className="btn-outline">View Services</Link>
+            <Link to="/services" className="btn-orange">Explore Services</Link>
+            <button className="btn-outline" onClick={() => open('Hi! I would like to know more about your services')}>Contact Us</button>
           </div>
-          <p className="hero-trust">🛡️ 100% Satisfaction Guaranteed — No Risk, No Stress</p>
         </div>
       </section>
 
@@ -100,7 +94,6 @@ export default function Home() {
 
       {/* Services Preview */}
       <section className="services-preview">
-        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>What We Offer</p>
         <h2 className="section-title">Our Services</h2>
         <p className="section-sub">Premium quality creative work at the most affordable prices</p>
         <div className="services-grid">
@@ -118,9 +111,9 @@ export default function Home() {
               <div className="service-info">
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <a href={`/services/${s.slug}`} className="btn-explore-home">
-                  Explore Now →
-                </a>
+                <Link to={`/services/${s.slug}`} className="btn-explore-home">
+                  Explore →
+                </Link>
               </div>
             </div>
           ))}
@@ -129,16 +122,16 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="why-us-section">
-        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Why CREOVATE</p>
-        <h2 className="section-title" style={{color:'white'}}>Why Clients Trust Us</h2>
+        <h2 className="section-title">Why Choose Us</h2>
+        <p className="section-sub">We deliver professional quality with exceptional service</p>
         <div className="why-us-grid">
           {[
-            { icon: '💰', title: 'Pay After Preview', desc: 'You only pay after you see and approve the watermarked preview. Zero risk for you.' },
-            { icon: '⚡', title: 'Super Fast Delivery', desc: 'Most projects delivered within 24 hours. Urgent orders handled with priority.' },
-            { icon: '🔄', title: 'Free Revisions', desc: 'Not 100% happy? We revise until you are. Your satisfaction is our goal.' },
-            { icon: '💬', title: 'Direct WhatsApp Support', desc: 'Chat directly with Bikash on WhatsApp. No bots, no delays, real human support.' },
-            { icon: '🎨', title: 'Professional Quality', desc: 'Every project is crafted with care, creativity and professional-grade tools.' },
-            { icon: '💸', title: 'Affordable Prices', desc: 'Starting from just ₹20. Premium quality at prices everyone can afford.' },
+            { icon: '💰', title: 'Affordable Pricing', desc: 'Premium quality at prices everyone can afford. No hidden charges, transparent pricing.' },
+            { icon: '⚡', title: 'Fast Delivery', desc: 'Most projects completed within 24 hours. Urgent orders handled with priority.' },
+            { icon: '🔄', title: 'Free Revisions', desc: 'We revise until you are 100% satisfied. Your satisfaction is our priority.' },
+            { icon: '💬', title: '24/7 Support', desc: 'Direct WhatsApp support. Real human assistance, no bots, no delays.' },
+            { icon: '🎨', title: 'Professional Quality', desc: 'Every project crafted with care, creativity and professional-grade tools.' },
+            { icon: '✅', title: 'Proven Results', desc: '100+ successful projects with 4.7/5 average rating from satisfied clients.' },
           ].map((w, i) => (
             <div className="why-card" key={i}>
               <div className="why-icon">{w.icon}</div>
@@ -151,14 +144,14 @@ export default function Home() {
 
       {/* How It Works */}
       <section className="how-it-works">
-        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Simple Process</p>
         <h2 className="section-title">How It Works</h2>
+        <p className="section-sub">A simple, straightforward process</p>
         <div className="steps">
           {[
-            { n: '01', t: 'Order on WhatsApp', d: 'Click Order Now and tell us what you need' },
-            { n: '02', t: 'We Start Working', d: 'We begin your project immediately' },
-            { n: '03', t: 'Preview Sent', d: 'You get a watermark preview to approve' },
-            { n: '04', t: 'Pay & Receive', d: 'Pay via UPI/QR and get the full HD file' },
+            { n: '01', t: 'Contact Us', d: 'Tell us about your project requirements' },
+            { n: '02', t: 'We Create', d: 'Our team starts working on your project' },
+            { n: '03', t: 'Review & Approve', d: 'You review and approve the final work' },
+            { n: '04', t: 'Delivery', d: 'Receive your completed project' },
           ].map((s, i) => (
             <div className="step" key={i}>
               <div className="step-num">{s.n}</div>
@@ -171,14 +164,14 @@ export default function Home() {
 
       {/* Feedback Section */}
       <section className="feedback-section">
-        <p className="section-sub" style={{color:'#ff6b35', fontWeight:600, textTransform:'uppercase', letterSpacing:2}}>Testimonials</p>
         <h2 className="section-title">Customer Reviews</h2>
+        <p className="section-sub">See what our clients are saying</p>
         <div className="feedback-grid">
           {[...defaultFeedbacks, ...feedbacks].slice(0, 6).map((f, i) => {
             const roundedRating = Math.max(0, Math.min(5, Math.round(Number(f.rating) || 0)));
             return (
               <div className="feedback-card" key={i}>
-                <div className="stars">{[...Array(roundedRating)].map((_, j) => <FaStar key={j} color="#ff6b35" />)}</div>
+                <div className="stars">{[...Array(roundedRating)].map((_, j) => <FaStar key={j} color="#1dbf73" />)}</div>
                 <div className="feedback-message">
                   {f.message.split(/\r?\n/).map((line, idx) => (
                     <p key={idx}>{line || <>&nbsp;</>}</p>

@@ -1,12 +1,16 @@
 .contact-hero {
-  background: linear-gradient(135deg, #0d1117, #1a1f2e);
+  background: linear-gradient(135deg, var(--white) 0%, #f9fafb 50%, #f0f3fa 100%);
   text-align: center;
   padding: 80px 20px;
-  color: white;
+  color: var(--dark);
 }
-.contact-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; }
-.contact-hero h1 span { color: #ff6b35; }
-.contact-hero p { color: #8b949e; font-size: 17px; }
+.contact-hero h1 { 
+  font-size: 48px; 
+  font-weight: 700; 
+  margin-bottom: 12px; 
+}
+.contact-hero h1 span { color: var(--primary); }
+.contact-hero p { color: var(--gray); font-size: 17px; }
 
 .fade-slide-in {
   animation: fadeSlide 0.9s ease forwards;

@@ -2,30 +2,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 60px;
-  background: rgba(13,17,23,0.98);
+  padding: 16px 60px;
+  background: var(--white);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(255,107,53,0.1);
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
 .logo {
   font-size: 22px;
-  font-weight: 950;
-  color: white;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
 }
 .logo:hover {
-  color: #ff9500;
+  color: var(--primary);
 }
-.logo span { color: #ff6b35; transition: color 0.3s ease; }
-.logo:hover span { color: #ff9500; }
+.logo span { color: var(--primary); transition: color 0.3s ease; }
 
 .nav-links {
   display: flex;
@@ -34,9 +32,9 @@
 }
 
 .nav-links a {
-  color: #a8b8c8;
+  color: #4a5568;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
   padding-bottom: 4px;
@@ -48,33 +46,34 @@
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2.5px;
-  background: linear-gradient(90deg, #ff6b35 0%, #ff9500 100%);
+  height: 2px;
+  background: var(--primary);
   transition: width 0.3s ease;
   border-radius: 2px;
 }
 .nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
-.nav-links a:hover, .nav-links a.active { color: white; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
 .nav-links .btn-orange {
   padding: 10px 24px;
   font-size: 14px;
   margin-left: 12px;
+  border-radius: 6px;
 }
 
 .hamburger {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--dark);
   font-size: 22px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .hamburger:hover {
-  color: #ff6b35;
+  color: var(--primary);
   transform: scale(1.1);
 }
 
@@ -86,12 +85,12 @@
     flex-direction: column;
     position: absolute;
     top: 60px; left: 0; right: 0;
-    background: rgba(13,17,23,0.99);
+    background: var(--white);
     padding: 28px 20px;
     gap: 20px;
-    border-bottom: 2px solid rgba(255,107,53,0.1);
+    border-bottom: 2px solid var(--border);
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-lg);
   }
   .nav-links.open { display: flex; }
   .nav-links a::after { display: none; }
