@@ -25,7 +25,6 @@ export default function Home() {
   const [form, setForm] = useState({ name: '', service: 'Video Editing', rating: 5, message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loadedImages, setLoadedImages] = useState({});
-  const [showHowItWorks, setShowHowItWorks] = useState(false);
 
   useEffect(() => {
     axios.get(`${API_BASE}/api/feedback`)
@@ -34,14 +33,6 @@ export default function Home() {
         console.error('Unable to load feedback:', err);
       });
   }, [submitted]);
-
-  useEffect(() => {
-    const hasSeenModal = localStorage.getItem('howItWorksModalSeen');
-    if (!hasSeenModal) {
-      setShowHowItWorks(true);
-      localStorage.setItem('howItWorksModalSeen', 'true');
-    }
-  }, []);
 
   const handleImageLoad = (index) => {
     setLoadedImages(prev => ({ ...prev, [index]: true }));
@@ -62,35 +53,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      {/* How It Works Modal */}
-      {showHowItWorks && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="modal-close" onClick={() => setShowHowItWorks(false)}>✕</button>
-            <div className="modal-header">
-              <h2>How It Works</h2>
-              <p>Simple 6-step process to get your work done</p>
-            </div>
-            <div className="modal-steps">
-              {[
-                { num: '1', text: 'Select your service' },
-                { num: '2', text: 'Chat on WhatsApp and share your requirement' },
-                { num: '3', text: 'Receive preview (watermarked), After Payment' },
-                { num: '4', text: 'Get final high-quality delivery' },
-                { num: '5', text: 'Then kindly share your feedback' }
-              ].map((step, idx) => (
-                <div className="modal-step" key={idx}>
-                  <div className="step-badge">{step.num}</div>
-                  <p>{step.text}</p>
-                </div>
-              ))}
-            </div>
-            <button className="btn-orange" style={{width: '100%', marginTop: 20}} onClick={() => setShowHowItWorks(false)}>
-              Got it! Let's Start 🚀
-            </button>
-          </div>
-        </div>
-      )}
       {/* Urgency Strip */}
       <div className="urgency-strip">
         🔥 Limited Slots Available This Week — <strong>Order Now & Get Priority Delivery!</strong> &nbsp;|&nbsp; ✅ After Preview, Then Pay Through UPI/QR
